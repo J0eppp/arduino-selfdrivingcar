@@ -6,22 +6,21 @@ const Serial = require('serialport');
 
 var port = new Serial("/dev/ttyUSB0", { baudRate: 9600 });
 
-function getSerialData() {
-  var result;
-  port.on("data", (data) => {
-    result = data;
-  });
-  return result;
-}
+
+var serialData;
+port.on("data", (data) => {
+  serialData = data.toString();
+});
 
 router.get("/distancesensor", (req, res) => {
-  // var resp = data();
-  var resp = getSerialData();
-  console.log("DATADADSLJKS /SDFJ LSDF J: " + resp);
-  let response = resp.split("_")
-  if (resp[0] == "US")
-  var json = {sensor1: response[1], sensor2: response[2], sensor3: response[3]};
-  res.send(json);
+  try {
+    var serialArray = serialData.split("_");
+    var response = { sensor1: serialArray[1], sensor2: serialArray[2], sensor3: serialArray[3] };
+    res.send(response);
+  } catch (e) {
+    console.log("Loading...");
+    res.send({ sensor1: 0, sensor2: 0, sensor3: 0 });
+  }
 });
 
 module.exports = router;
