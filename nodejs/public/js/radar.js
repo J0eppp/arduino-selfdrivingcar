@@ -4,7 +4,7 @@ let ctx = canvas.getContext("2d");
 function getStatus() {
   $.get(document.location.origin + "/api/distancesensor", (data) => {
     console.log(data);
-    data = data.split("_");
+    // data = data.split("_");
     let s1 = data["sensor1"];
     let s2 = data["sensor2"];
     let s3 = data["sensor3"];
