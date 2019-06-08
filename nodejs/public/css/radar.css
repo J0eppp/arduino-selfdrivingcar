@@ -1,0 +1,19 @@
+#sensor1 {
+  width: 150px;
+  height: 50px;
+  position: absolute;
+}
+
+#sensor2 {
+  margin-left: 150px;
+  width: 150px;
+  height: 50px;
+  position: absolute;
+}
+
+#sensor3 {
+  margin-left: 300px;
+  width: 150px;
+  height: 50px;
+  position: absolute;
+}
