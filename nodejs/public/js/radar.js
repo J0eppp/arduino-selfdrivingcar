@@ -1,5 +1,6 @@
 let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext("2d");
+let loop;
 
 function getStatus() {
   $.get(document.location.origin + "/api/distancesensor", (data) => {
@@ -42,6 +43,7 @@ function getStatus() {
 }
 
 function convertCMToRGB(cm) {
+  console.log("CM: " + cm);
   if (cm > 85) { // Above 85cm, safe // green
     return "rgb(0, 255, 0)";
   } else if (cm >= 42.5) { // between 85cm and 42.5cm
@@ -52,7 +54,9 @@ function convertCMToRGB(cm) {
 }
 
 
-window.onload = setInterval(getStatus, 100);
+window.onload = function() {
+  loop = setInterval(getStatus, 300);
+}
 
 
 /*

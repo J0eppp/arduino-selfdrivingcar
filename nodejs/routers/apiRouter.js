@@ -14,9 +14,12 @@ port.on("data", (data) => {
 
 router.get("/distancesensor", (req, res) => {
   try {
-    var serialArray = serialData.split("_");
-    var response = { sensor1: serialArray[1], sensor2: serialArray[2], sensor3: serialArray[3] };
-    res.send(response);
+    //if (serialData[0] === "U" && serialData[1] === "S") {
+      var serialArray = serialData.split("_");
+      var response = { sensor1: serialArray[1], sensor2: serialArray[2], sensor3: serialArray[3] };
+      console.log(response, serialData);
+      res.send(response);
+    //}
   } catch (e) {
     console.log("Loading...");
     res.send({ sensor1: 0, sensor2: 0, sensor3: 0 });
