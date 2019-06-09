@@ -9,7 +9,7 @@ var port = new Serial("/dev/ttyUSB0", { baudRate: 9600 });
 function getSerialData() {
   var result;
   port.on("data", (data) => {
-    result = data;
+    result = data.toString();
   });
   return result;
 }
