@@ -1,0 +1,14 @@
+{
+  "name": "arduino-gia-webserver",
+  "version": "1.0.0",
+  "description": "Arduini GIA webserver",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joep van Dijk",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
